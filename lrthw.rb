@@ -596,7 +596,122 @@ Ex25.print_first_and_last(sentence)
 Ex25.print_first_and_last_sorted(sentence)
 
 
+#Exercise 26: Congratulations, Take a Test!
 
+puts "\n exe 26"
+
+
+#Exercise 27: Memorizing Logic
+
+puts " \n exe 27"
+
+
+#Exercise 28: Boolean Practice
+
+puts " \n exe 28"
+
+
+puts true && true
+puts false && true
+puts 1 == 1 && 2 == 1
+puts "test" == "test"
+puts 1 == 1 || 2 != 1
+puts true && 1 == 1
+puts false && 0 != 0
+puts true || 1 == 1
+puts "test" == "testing"
+puts 1 != 0 && 2 == 1
+puts "test" != "testing"
+puts "test" == 1
+puts !(true && false)
+puts !(1 == 1 && 0 != 1)
+puts !(10 == 1 || 1000 == 1000)
+puts !(1 != 10 || 3 == 4)
+puts !("testing" == "testing" && "Zed" == "Cool Guy")
+puts 1 == 1 && (!("testing" == 1 || 1 == 0))
+puts "chunky" == "bacon" && (!(3 == 4 || 3 == 3))
+puts 3 == 3 && (!("testing" == "testing" || "Ruby" == "Fun"))
+
+
+puts "test" && "test"
+puts "test" && "test1"
+puts "test" || "test2"
+puts "test" && 1
+puts "test" || 2
+
+
+#Exercise 29: What If
+
+puts "\n exe 29"
+
+people = 20
+cats = 30
+dogs = 15
+
+
+if people < cats
+  puts "Too many cats! The world is doomed!"
+end
+
+if people > cats
+  puts "Not many cats! The world is saved!"
+end
+
+if people < dogs
+  puts "The world is drooled on!"
+end
+
+if people > dogs
+  puts "The world is dry!"
+end
+
+
+dogs += 5
+
+if people >= dogs
+  puts "People are greater than or equal to dogs."
+end
+
+if people <= dogs
+  puts "People are less than or equal to dogs."
+end
+
+
+if people == dogs
+  puts "People are dogs."
+end
+
+
+#Exercise 30: Else and If
+
+puts "\n exe 30"
+
+people = 30
+cars = 40
+trucks = 15
+
+
+if cars > people
+  puts "We should take the cars."
+elsif cars < people
+  puts "We should not take the cars."
+else
+  puts "We can't decide."
+end
+
+if trucks > cars
+  puts "That's too many trucks."
+elsif trucks < cars
+  puts "Maybe we could take the trucks."
+else
+  puts "We still can't decide."
+end
+
+if people > trucks
+  puts "Alright, let's just take the trucks."
+else
+  puts "Fine, let's stay home then."
+end
 
 
 
