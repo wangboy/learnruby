@@ -134,9 +134,9 @@ puts end7 + end8 + end9 + end10 + end11 + end12
 
 puts "\n"
 
-formatter = "%{first} %{second} %{third} %{fourth}"        ################
+formatter = "%{first} %{second} %{third} %{fourth}" ################
 
-puts formatter % {first: 1, second: 2, third: 3, fourth: 4}      ################
+puts formatter % {first: 1, second: 2, third: 3, fourth: 4} ################
 puts formatter % {second: "two", first: "one", third: "three", fourth: "four"}
 puts formatter % {first: true, second: false, third: true, fourth: false}
 puts formatter % {first: formatter, second: formatter, third: formatter, fourth: formatter}
@@ -159,13 +159,13 @@ months = "Jan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug"
 puts "Here are the days: #{days}"
 puts "Here are the months: #{months}"
 
-                                                #############
-puts """       
+#############
+puts "" "
 There's something going on here.
 With the three double-quotes.
 We'll be able to type as much as we like.
 Even 4 lines if we want, or 5, or 6.
-"""
+" ""
 
 
 puts "\nExercise 10: What Was That?"
@@ -236,7 +236,7 @@ puts fat_cat
 
 #Exercise 13: Parameters, Unpacking, Variables
 
-first, second, third = ARGV               #############
+first, second, third = ARGV #############
 
 puts "Your first variable is: #{first}"
 puts "Your second variable is: #{second}"
@@ -274,10 +274,10 @@ puts "\n exe 15"
 filename = "rt15"
 
 prompt = "> "
-txt = File.open(filename)               #############
+txt = File.open(filename) #############
 
 puts "Here's your file: #{filename}"
-puts txt.read               #############
+puts txt.read #############
 
 txt.close
 
@@ -436,11 +436,11 @@ def print_all(f)
 end
 
 def rewind(f)
-  f.seek(0)               #############
+  f.seek(0) #############
 end
 
 def print_a_line(line_count, f)
-  puts "#{line_count}, #{f.gets.chomp}"               #############
+  puts "#{line_count}, #{f.gets.chomp}" #############
 end
 
 current_file = open(input_file)
@@ -465,13 +465,12 @@ current_line = current_line + 1
 print_a_line(current_line, current_file)
 
 
-
 #Exercise 21: Functions Can Return Something
 puts "\n exe 21"
 
 def add(a, b)
   puts "ADDING #{a} + #{b}"
-  return a + b               #############
+  return a + b #############
 end
 
 def subtract(a, b)
@@ -508,7 +507,7 @@ what = add(age, subtract(height, multiply(weight, divide(iq, 2))))
 puts "That becomes: #{what}. Can you do it by hand?"
 
 def noreturn()
-  a = 1 + 2               #############
+  a = 1 + 2 #############
 end
 
 nr = noreturn
@@ -534,8 +533,8 @@ puts "Let's practice everything."
 puts 'You\'d need to know \'bout escapes with \\ that do \n newlines and \t tabs.'
 
 # the <<END is a "heredoc". See the Student Questions.
-               #############
-poem = <<END                        ################
+#############
+poem = <<END ################
 \tThe lovely world
 with logic so firmly planted
 cannot discern \n the needs of love
@@ -556,12 +555,12 @@ def secret_formula(started)
   jelly_beans = started * 500
   jars = jelly_beans / 1000
   crates = jars / 100
-  return jelly_beans, jars, crates  ################
+  return jelly_beans, jars, crates ################
 end
 
 
 start_point = 10000
-beans, jars, crates = secret_formula(start_point)    ################
+beans, jars, crates = secret_formula(start_point) ################
 
 puts "With a starting point of: #{start_point}"
 puts "We'd have #{beans} beans, #{jars} jars, and #{crates} crates."
@@ -721,15 +720,16 @@ puts "\n exe 31"
 puts "You enter a dark room with two doors.  Do you go through door #1 or door #2?"
 
 print "> "
-door = $stdin.gets.chomp
-
+# door = $stdin.gets.chomp
+door = "1"
 if door == "1"
   puts "There's a giant bear here eating a cheese cake.  What do you do?"
   puts "1. Take the cake."
   puts "2. Scream at the bear."
 
   print "> "
-  bear = $stdin.gets.chomp
+  # bear = $stdin.gets.chomp
+  bear = "1"
 
   if bear == "1"
     puts "The bear eats your face off.  Good job!"
@@ -760,7 +760,7 @@ end
 
 
 def exeStart(num)
-  puts "\n exe #{num}"
+  puts "", "=" *20 + " exe #{num}" + "=" * 20
 end
 
 #Exercise 32: Loops and Arrays
@@ -786,7 +786,7 @@ end
 # also we can go through mixed lists too
 # note this is yet another style, exactly like above
 # but a different syntax (way to write it).
-change.each {|i| puts "I got #{i}" }
+change.each { |i| puts "I got #{i}" }
 
 # we can also build lists, first start with an empty one
 elements = []
@@ -799,17 +799,17 @@ elements = []
 end
 
 # now we can print them out too
-elements.each {|i| puts "Element was: #{i}" }
+elements.each { |i| puts "Element was: #{i}" }
 
-myArray = [12,3,4,5,5,6]
+myArray = [12, 3, 4, 5, 5, 6]
 
-myArray.each {|i| puts " #{i} in myArray"}
+myArray.each { |i| puts " #{i} in myArray" }
 
 myArray.each do |i|
   puts "#{i} in ma"
 end
 
-(1..10).each {|i| myArray.push(i)}
+(1..10).each { |i| myArray.push(i) }
 myArray.each do |a|
   puts "#{a} now ma"
 end
@@ -835,18 +835,13 @@ end
 puts "The numbers: "
 
 # remember you can write this 2 other ways?
-numbers.each {|num| puts num }
-
+numbers.each { |num| puts num }
 
 
 #Exercise 34: Accessing Elements of Arrays
 exeStart(34)
 
 animals = ['bear', 'ruby', 'peacock', 'kangaroo', 'whale', 'platypus']
-
-
-
-
 
 
 #Exercise 35: Branches and Functions
@@ -861,9 +856,9 @@ def gold_room
   choice = $stdin.gets.chomp
 
 #http://www.runoob.com/ruby/ruby-regular-expressions.html
-  # this line has a bug, so fix it
-  #if choice == "0" || choice == "1"  ?
-  # if choice.include?("0") || choice.include?("1")
+# this line has a bug, so fix it
+#if choice == "0" || choice == "1"  ?
+# if choice.include?("0") || choice.include?("1")
   if choice =~ /\D/
     dead("Man, learn to type a number.")
   else
@@ -947,9 +942,121 @@ def start
 end
 
 # start
-gold_room
+# gold_room
 
 
+#Exercise 36: Designing and Debugging
+exeStart(36)
+
+
+#Exercise 37: Symbol Review
+exeStart(37)
+
+puts true and "Goodbye"
+puts "Hello", "Goodbye"
+
+
+#Exercise 38: Doing Things to Arrays
+
+exeStart(38)
+
+
+ten_things = "Apples Oranges Crows Telephone Light Sugar"
+
+puts "Wait there are not 10 things in that list. Let's fix that."
+
+stuff = ten_things.split(' ')
+more_stuff = ["Day", "Night", "Song", "Frisbee", "Corn", "Banana", "Girl", "Boy"]
+
+# using math to make sure there's 10 items
+
+while stuff.length != 10
+  next_one = more_stuff.pop
+  puts "Adding: #{next_one}"
+  stuff.push(next_one)
+  puts "There are #{stuff.length} items now."
+end
+
+puts "There we go: #{stuff}"
+
+puts "Let's do some things with stuff."
+
+puts stuff[1]
+puts stuff[-1] # whoa! fancy
+puts stuff.pop()
+puts stuff.join(' ')
+puts stuff[3..5].join("#")
+
+
+#Exercise 39: Hashes, Oh Lovely Hashes
+exeStart(39)
+
+# create a mapping of state to abbreviation
+states = {
+    'Oregon' => 'OR',
+    'Florida' => 'FL',
+    'California' => 'CA',
+    'New York' => 'NY',
+    'Michigan' => 'MI'
+}
+
+# create a basic set of states and some cities in them
+cities = {
+    'CA' => 'San Francisco',
+    'MI' => 'Detroit',
+    'FL' => 'Jacksonville'
+}
+
+# add some more cities
+cities['NY'] = 'New York'
+cities['OR'] = 'Portland'
+
+# puts out some cities
+puts '-' * 10
+puts "NY State has: #{cities['NY']}"
+puts "OR State has: #{cities['OR']}"
+
+# puts some states
+puts '-' * 10
+puts "Michigan's abbreviation is: #{states['Michigan']}"
+puts "Florida's abbreviation is: #{states['Florida']}"
+
+# do it by using the state then cities dict
+puts '-' * 10
+puts "Michigan has: #{cities[states['Michigan']]}"
+puts "Florida has: #{cities[states['Florida']]}"
+
+# puts every state abbreviation
+puts '-' * 10
+states.each do |state, abbrev| ########################
+  puts "#{state} is abbreviated #{abbrev}"
+end
+
+# puts every city in state
+puts '-' * 10
+cities.each do |abbrev, city|
+  puts "#{abbrev} has the city #{city}"
+end
+
+# now do both at the same time
+puts '-' * 10
+states.each do |state, abbrev|
+  city = cities[abbrev]
+  puts "#{state} is abbreviated #{abbrev} and has city #{city}"
+end
+
+puts '-' * 10
+# by default ruby says "nil" when something isn't in there
+state = states['Texas']
+
+if !state
+  puts "Sorry, no Texas. [#{state}] #{state == nil}"
+end
+
+# default values using ||= with the nil result
+city = cities['TX']
+city ||= 'Does Not Exist' ########################
+puts "The city for the state 'TX' is: #{city}"
 
 
 
