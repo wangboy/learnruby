@@ -714,6 +714,247 @@ else
 end
 
 
+#Exercise 31: Making Decisions
+
+puts "\n exe 31"
+
+puts "You enter a dark room with two doors.  Do you go through door #1 or door #2?"
+
+print "> "
+door = $stdin.gets.chomp
+
+if door == "1"
+  puts "There's a giant bear here eating a cheese cake.  What do you do?"
+  puts "1. Take the cake."
+  puts "2. Scream at the bear."
+
+  print "> "
+  bear = $stdin.gets.chomp
+
+  if bear == "1"
+    puts "The bear eats your face off.  Good job!"
+  elsif bear == "2"
+    puts "The bear eats your legs off.  Good job!"
+  else
+    puts "Well, doing %s is probably better.  Bear runs away." % bear
+  end
+
+elsif door == "2"
+  puts "You stare into the endless abyss at Cthulhu's retina."
+  puts "1. Blueberries."
+  puts "2. Yellow jacket clothespins."
+  puts "3. Understanding revolvers yelling melodies."
+
+  print "> "
+  insanity = $stdin.gets.chomp
+
+  if insanity == "1" || insanity == "2"
+    puts "Your body survives powered by a mind of jello.  Good job!"
+  else
+    puts "The insanity rots your eyes into a pool of muck.  Good job!"
+  end
+
+else
+  puts "You stumble around and fall on a knife and die.  Good job!"
+end
+
+
+def exeStart(num)
+  puts "\n exe #{num}"
+end
+
+#Exercise 32: Loops and Arrays
+exeStart(32)
+
+the_count = [1, 2, 3, 4, 5]
+fruits = ['apples', 'oranges', 'pears', 'apricots']
+change = [1, 'pennies', 2, 'dimes', 3, 'quarters']
+
+# this first kind of for-loop goes through a list
+# in a more traditional style found in other languages
+for number in the_count
+  puts "This is count #{number}"
+end
+
+# same as above, but in a more Ruby style
+# this and the next one are the preferred 
+# way Ruby for-loops are written
+fruits.each do |fruit|
+  puts "A fruit of type: #{fruit}"
+end
+
+# also we can go through mixed lists too
+# note this is yet another style, exactly like above
+# but a different syntax (way to write it).
+change.each {|i| puts "I got #{i}" }
+
+# we can also build lists, first start with an empty one
+elements = []
+
+# then use the range operator to do 0 to 5 counts
+(0..5).each do |i|
+  puts "adding #{i} to the list."
+  # pushes the i variable on the *end* of the list
+  elements.push(i)
+end
+
+# now we can print them out too
+elements.each {|i| puts "Element was: #{i}" }
+
+myArray = [12,3,4,5,5,6]
+
+myArray.each {|i| puts " #{i} in myArray"}
+
+myArray.each do |i|
+  puts "#{i} in ma"
+end
+
+(1..10).each {|i| myArray.push(i)}
+myArray.each do |a|
+  puts "#{a} now ma"
+end
+
+myArray.each { |chr| puts " each_char #{chr}" }
+
+
+#Exercise 33: While Loops
+exeStart(33)
+
+i = 0
+numbers = []
+
+while i < 6
+  puts "At the top i is #{i}"
+  numbers.push(i)
+
+  i += 1
+  puts "Numbers now: ", numbers
+  puts "At the bottom i is #{i}"
+end
+
+puts "The numbers: "
+
+# remember you can write this 2 other ways?
+numbers.each {|num| puts num }
+
+
+
+#Exercise 34: Accessing Elements of Arrays
+exeStart(34)
+
+animals = ['bear', 'ruby', 'peacock', 'kangaroo', 'whale', 'platypus']
+
+
+
+
+
+
+#Exercise 35: Branches and Functions
+
+str = "3a1a"
+puts "str.to_i = #{str.to_i}"
+
+def gold_room
+  puts "This room is full of gold.  How much do you take?"
+
+  print "> "
+  choice = $stdin.gets.chomp
+
+#http://www.runoob.com/ruby/ruby-regular-expressions.html
+  # this line has a bug, so fix it
+  #if choice == "0" || choice == "1"  ?
+  # if choice.include?("0") || choice.include?("1")
+  if choice =~ /\D/
+    dead("Man, learn to type a number.")
+  else
+    how_much = choice.to_i
+  end
+
+  if how_much < 50
+    puts "Nice, you're not greedy, you win!"
+    exit(0)
+  else
+    dead("You greedy bastard!")
+  end
+end
+
+
+def bear_room
+  puts "There is a bear here."
+  puts "The bear has a bunch of honey."
+  puts "The fat bear is in front of another door."
+  puts "How are you going to move the bear?"
+  bear_moved = false
+
+  while true
+    print "> "
+    choice = $stdin.gets.chomp
+
+    if choice == "take honey"
+      dead("The bear looks at you then slaps your face off.")
+    elsif choice == "taunt bear" && !bear_moved
+      puts "The bear has moved from the door. You can go through it now."
+      bear_moved = true
+    elsif choice == "taunt bear" && bear_moved
+      dead("The bear gets pissed off and chews your leg off.")
+    elsif choice == "open door" && bear_moved
+      gold_room
+    else
+      puts "I got no idea what that means."
+    end
+  end
+end
+
+
+def cthulhu_room
+  puts "Here you see the great evil Cthulhu."
+  puts "He, it, whatever stares at you and you go insane."
+  puts "Do you flee for your life or eat your head?"
+
+  print "> "
+  choice = $stdin.gets.chomp
+
+  if choice.include? "flee"
+    start
+  elsif choice.include? "head"
+    dead("Well that was tasty!")
+  else
+    cthulhu_room
+  end
+end
+
+
+def dead(why)
+  puts why, "Good job!"
+  exit(0)
+end
+
+def start
+  puts "You are in a dark room."
+  puts "There is a door to your right and left."
+  puts "Which one do you take?"
+
+  print "> "
+  choice = $stdin.gets.chomp
+
+  if choice == "left"
+    bear_room
+  elsif choice == "right"
+    cthulhu_room
+  else
+    dead("You stumble around the room until you starve.")
+  end
+end
+
+# start
+gold_room
+
+
+
+
+
+
+
 
 
 
